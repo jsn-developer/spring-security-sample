@@ -38,7 +38,8 @@
 		"richardwillis.vscode-gradle",
 		"richardwillis.vscode-spotless-gradle",
 		"gabrielbb.vscode-lombok",
-		"mtxr.sqltools-driver-pg"
+		"mtxr.sqltools-driver-pg",
+		"btamburrino.apex-javadoc"
 	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
