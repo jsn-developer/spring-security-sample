@@ -13,8 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/")
 public class IndexController {
-
-  /** 初期表示 */
+  /**
+   * 初期表示
+   *
+   * @param user 認証ユーザ情報
+   * @return ModelAndView
+   */
   @GetMapping
   public ModelAndView initilize(@AuthenticationPrincipal User user) {
     if (user != null) {
@@ -24,19 +28,31 @@ public class IndexController {
     return new ModelAndView("index");
   }
 
-  /** ログイン画面遷移ボタン押下時処理 */
+  /**
+   * ログイン画面遷移ボタン押下時処理
+   *
+   * @return redirect url
+   */
   @PostMapping(params = "login")
   public String clickLoginScreenButton() {
     return "redirect:/login";
   }
 
-  /** プロテクト画面遷移ボタン押下時処理 */
+  /**
+   * プロテクト画面遷移ボタン押下時処理
+   *
+   * @return redirect url
+   */
   @PostMapping(params = "protect")
   public String clickProtectScreenButton() {
     return "redirect:/protect";
   }
 
-  /** 管理者画面遷移ボタン押下時処理 */
+  /**
+   * 管理者画面遷移ボタン押下時処理
+   *
+   * @return redirect url
+   */
   @PostMapping(params = "admin")
   public String clickAdminScreenButton() {
     return "redirect:/admin";

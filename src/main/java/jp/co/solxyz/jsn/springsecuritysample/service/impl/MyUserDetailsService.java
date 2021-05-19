@@ -2,7 +2,6 @@
 package jp.co.solxyz.jsn.springsecuritysample.service.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import jp.co.solxyz.jsn.springsecuritysample.dto.UserMstDto;
 import jp.co.solxyz.jsn.springsecuritysample.repository.UserMstRepository;
@@ -15,11 +14,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+/** ユーザ情報取得クラス */
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
+  /** ユーザマスタリポジトリ */
   @Autowired private UserMstRepository userMstRepository;
 
+  /** {@inheritDoc} */
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 

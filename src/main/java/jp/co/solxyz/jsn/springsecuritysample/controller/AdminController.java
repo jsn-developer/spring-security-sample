@@ -10,7 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-  /** 初期表示 */
+  /**
+   * 初期表示
+   *
+   * @return ModelAndView
+   */
   @GetMapping
   public ModelAndView initilize() {
     return new ModelAndView("admin");

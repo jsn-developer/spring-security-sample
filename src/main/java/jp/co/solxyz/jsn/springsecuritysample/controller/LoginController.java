@@ -11,7 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-  /** 初期表示 */
+  /**
+   * 初期表示
+   *
+   * @return ModelAndView
+   */
   @GetMapping
   public ModelAndView initilize() {
     ModelAndView mav = new ModelAndView("login");
