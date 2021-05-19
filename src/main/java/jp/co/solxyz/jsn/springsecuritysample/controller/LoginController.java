@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/** ログイン画面コントローラークラス */
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+  /** 初期表示 */
   @GetMapping
   public ModelAndView initilize() {
     ModelAndView mav = new ModelAndView("login");

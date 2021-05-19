@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/** ユーザマスタDTOクラス */
 @Table(name = "MST_USER")
 @Entity
 @Data
@@ -19,16 +20,20 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString(exclude = {"password"})
 public class UserMstDto {
+  /** ID */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
+  /** ユーザネーム */
   @Column(name = "username", length = 30, nullable = false)
   private String username;
 
+  /** パスワード */
   @Column(name = "password", length = 120, nullable = false)
   private String password;
 
+  /** ロール */
   @Column(name = "role", length = 10, nullable = false)
   private String role;
 }

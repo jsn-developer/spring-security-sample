@@ -13,22 +13,27 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/** Spring Security設定クラス */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+  /** ユーザー固有情報取得クラス */
   @Autowired private UserDetailsService userDetailsService;
 
+  /** パスワードエンコーダー */
   @Bean
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
 
+  /** 構成 */
   @Override
   public void configure(WebSecurity web) throws Exception {
     web.debug(false).ignoring().antMatchers("/public/images/**", "/public/js/**", "/public/css/**");
   }
 
+  /** 構成 */
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
@@ -55,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .logoutSuccessUrl("/");
   }
 
+  /** 構成 */
   @Autowired
   public void configure(AuthenticationManagerBuilder auth) throws Exception {
     auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());

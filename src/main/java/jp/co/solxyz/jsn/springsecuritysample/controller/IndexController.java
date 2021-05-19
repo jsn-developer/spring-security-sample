@@ -9,30 +9,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/** トップ画面コントローラークラス */
 @Controller
 @RequestMapping("/")
 public class IndexController {
 
+  /** 初期表示 */
   @GetMapping
   public ModelAndView initilize(@AuthenticationPrincipal User user) {
-    ModelAndView mav = new ModelAndView("index");
     if (user != null) {
-      mav.addObject("username", user.getUsername());
-      mav.addObject("permission", user.getAuthorities().toString());
+      System.out.println("username: " + user.getUsername());
+      System.out.println("permission: " + user.getAuthorities().toString());
     }
-    return mav;
+    return new ModelAndView("index");
   }
 
+  /** ログイン画面遷移ボタン押下時処理 */
   @PostMapping(params = "login")
   public String clickLoginScreenButton() {
     return "redirect:/login";
   }
 
+  /** プロテクト画面遷移ボタン押下時処理 */
   @PostMapping(params = "protect")
   public String clickProtectScreenButton() {
     return "redirect:/protect";
   }
 
+  /** 管理者画面遷移ボタン押下時処理 */
   @PostMapping(params = "admin")
   public String clickAdminScreenButton() {
     return "redirect:/admin";

@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/** プロテクト画面コントローラークラス */
 @Controller
 @RequestMapping("/protect")
 public class ProtectionController {
+  /** 初期表示 */
   @GetMapping
   public ModelAndView initilize() {
     return new ModelAndView("protect");
